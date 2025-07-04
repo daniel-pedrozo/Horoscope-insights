@@ -50,5 +50,6 @@ def scam_warning():
     session['submission_count'] = 0
     return render_template('scam.html')
 
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == "__main__":
+    app.run()
+
