@@ -1,10 +1,11 @@
 from flask import Flask, render_template, request, redirect, session, url_for
 import requests
+import os
 
 app = Flask(__name__)
 app.secret_key = "super-uper-duper-secure-key"
 
-API_URL = "https://horoscope-app-api.vercel.app/api/v1/get-horoscope/daily"
+app.secret_key = os.environ.get("SECRET_KEY", "fallback-insecure-key")
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
