@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}🔮 Horoscope Insights{% endblock %}
+
+{% block content %}
+<div class="flex flex-col items-center mt-4">
+
+    <h1 class="text-3xl font-bold mb-6 text-center">✨ Your Horoscope Insights ✨</h1>
+
+    <div class="w-full max-w-md bg-white shadow-md rounded-lg p-6">
+        <form method="POST" class="space-y-4">
+            <div>
+                <label for="sign" class="block mb-2 text-sm font-medium">Choose your zodiac sign:</label>
+                <select id="sign" name="sign" required class="w-full p-2.5 rounded-lg border border-gray-300 text-sm">
+                    <option value="aries">Aries</option>
+                    <option value="taurus">Taurus</option>
+                    <option value="gemini">Gemini</option>
+                    <option value="cancer">Cancer</option>
+                    <option value="leo">Leo</option>
+                    <option value="virgo">Virgo</option>
+                    <option value="libra">Libra</option>
+                    <option value="scorpio">Scorpio</option>
+                    <option value="sagittarius">Sagittarius</option>
+                    <option value="capricorn">Capricorn</option>
+                    <option value="aquarius">Aquarius</option>
+                    <option value="pisces">Pisces</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="day" class="block mb-2 text-sm font-medium">Choose the day:</label>
+                <select id="day" name="day" required class="w-full p-2.5 rounded-lg border border-gray-300 text-sm">
+                    <option value="TODAY">Today</option>
+                    <option value="TOMORROW">Tomorrow</option>
+                    <option value="YESTERDAY">Yesterday</option>
+                </select>
+            </div>
+
+            <div class="text-center">
+                <button type="submit"
+                    class="px-5 py-2.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 text-sm font-medium">
+                    Get Horoscope
+                </button>
+            </div>
+        </form>
+    </div>
+
+    {% if horoscope %}
+    <div class="mt-8 w-full max-w-md bg-white shadow-lg rounded-lg p-6">
+        <h2 class="text-xl font-semibold mb-2">{{ sign|capitalize }} - {{ date }}</h2>
+        <p class="text-gray-700">{{ horoscope }}</p>
+    </div>
+    {% endif %}
+
+</div>
+{% endblock %}
